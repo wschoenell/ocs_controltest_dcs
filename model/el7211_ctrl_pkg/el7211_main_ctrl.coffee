@@ -1,4 +1,4 @@
-Controller         'el7211_ctrl_main',
+Controller         'el7211_main_ctrl',
   info: 'EL7211 main Controller'
   desc: 'This component implements the control of the EL7211 module'
   extends: ['BaseController']
@@ -20,15 +20,7 @@ Controller         'el7211_ctrl_main',
       protocol: 'pull'
       max_rate: 1000
       owner: true
-      blocking_mode: 'async'
-
-    el7211_info_port:
-      desc: 'EL7211 Info (read/SDOs) variables'
-      type: 'el7211_info'
-      protocol: 'pull'
-      max_rate: 1000
-      owner: true
-      blocking_mode: 'async'
+      blocking_mode: 'sync'
 
   output_ports:
     el7211_control_port:
@@ -37,13 +29,13 @@ Controller         'el7211_ctrl_main',
       protocol: 'push'
       max_rate: 1000
       owner: false
-      blocking_mode: 'async'
+      blocking_mode: 'sync'
 
   properties:
-    uri: {default: "gmt://el7211_dcs/el7211_ctrl_main"}
-    name: {default: "el7211_ctrl_main"}
+    uri: {default: "gmt://127.0.0.1/controltest_dcs"}
+    name: {default: "el7211_main_ctrl"}
     host: {default: "127.0.0.1"}
     port: {default: 8010}
     scan_rate: {default: 100}
 
-  instance_configurations: ['el7211_ctrl_main']
+  instance_configurations: ['el7211_main_ctrl']

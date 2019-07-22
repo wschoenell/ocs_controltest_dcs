@@ -10,7 +10,6 @@ DCS       'controltest_dcs',
   types: [
     "el7211_control"
     "el7211_state"
-    "el7211_info"
   ]
 
 
@@ -32,16 +31,6 @@ DCS       'controltest_dcs',
     {
       id: 8113,
       from: {element: "el7211_hw1_adapter", port: "el7211_state_port"},
-      to: {element: "*", port: "*"},
-      max_latency: 0.5,
-      nom_rate: 1,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
-    {
-      id: 8114,
-      from: {element: "el7211_hw1_adapter", port: "el7211_info_port"},
       to: {element: "*", port: "*"},
       max_latency: 0.5,
       nom_rate: 1,
@@ -84,16 +73,6 @@ DCS       'controltest_dcs',
       conversion: "",
       bus: ""
     }
-    {
-      id: 8214,
-      to: {element: "el7211_main_ctrl", port: "el7211_info_port"},
-      from: {element: "*", port: "*"},
-      max_latency: 0.5,
-      nom_rate: 1,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
     # outputs
     {
       id: 8210,
@@ -129,99 +108,99 @@ DCS       'controltest_dcs',
     }
 
 
-    # Serial
-    # serial_hw_adapter
-    # inputs
-    {
-      id: 9110,
-      to: {element: "serial_hw1_adapter", port: "device_data_out"},
-      from: {element: "*", port: "*"},
-      max_latency: 0.5,
-      nom_rate: 100,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
-
-    # outputs
-    {
-      id: 9113,
-      from: {element: "serial_hw1_adapter", port: "device_data_in"},
-      to: {element: "*", port: "*"},
-      max_latency: 0.5,
-      nom_rate: 1,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
-
-    # op state
-    {
-      id: 9111,
-      to: {element: "serial_hw1_adapter", port: "op_state_goal"},
-      from: {element: "*", port: "*"},
-      max_latency: 0.5,
-      nom_rate: 1,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
-    {
-      id: 9112,
-      from: {element: "serial_hw1_adapter", port: "op_state_value"},
-      to: {element: "*", port: "*"},
-      max_latency: 0.5,
-      nom_rate: 1,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
-
-    # serial_main_ctrl
-    # inputs
-    {
-      id: 9213,
-      to: {element: "serial_main_ctrl", port: "device_data_in"},
-      from: {element: "*", port: "*"},
-      max_latency: 0.5,
-      nom_rate: 1,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
-    # outputs
-    {
-      id: 9210,
-      from: {element: "serial_main_ctrl", port: "device_data_out"},
-      to: {element: "*", port: "*"},
-      max_latency: 0.5,
-      nom_rate: 100,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
-
-    # op state
-    {
-      id: 9211,
-      to: {element: "serial_main_ctrl", port: "op_state_goal"},
-      from: {element: "*", port: "*"},
-      max_latency: 0.5,
-      nom_rate: 1,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
-    {
-      id: 9212,
-      from: {element: "serial_main_ctrl", port: "op_state_value"},
-      to: {element: "*", port: "*"},
-      max_latency: 0.5,
-      nom_rate: 1,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
-
+#    # Serial
+#    # serial_hw_adapter
+#    # inputs
+#    {
+#      id: 9110,
+#      to: {element: "serial_hw1_adapter", port: "device_data_out"},
+#      from: {element: "*", port: "*"},
+#      max_latency: 0.5,
+#      nom_rate: 100,
+#      on_fault: "",
+#      conversion: "",
+#      bus: ""
+#    }
+#
+#    # outputs
+#    {
+#      id: 9113,
+#      from: {element: "serial_hw1_adapter", port: "device_data_in"},
+#      to: {element: "*", port: "*"},
+#      max_latency: 0.5,
+#      nom_rate: 1,
+#      on_fault: "",
+#      conversion: "",
+#      bus: ""
+#    }
+#
+#    # op state
+#    {
+#      id: 9111,
+#      to: {element: "serial_hw1_adapter", port: "op_state_goal"},
+#      from: {element: "*", port: "*"},
+#      max_latency: 0.5,
+#      nom_rate: 1,
+#      on_fault: "",
+#      conversion: "",
+#      bus: ""
+#    }
+#    {
+#      id: 9112,
+#      from: {element: "serial_hw1_adapter", port: "op_state_value"},
+#      to: {element: "*", port: "*"},
+#      max_latency: 0.5,
+#      nom_rate: 1,
+#      on_fault: "",
+#      conversion: "",
+#      bus: ""
+#    }
+#
+#    # serial_main_ctrl
+#    # inputs
+#    {
+#      id: 9213,
+#      to: {element: "serial_main_ctrl", port: "device_data_in"},
+#      from: {element: "*", port: "*"},
+#      max_latency: 0.5,
+#      nom_rate: 1,
+#      on_fault: "",
+#      conversion: "",
+#      bus: ""
+#    }
+#    # outputs
+#    {
+#      id: 9210,
+#      from: {element: "serial_main_ctrl", port: "device_data_out"},
+#      to: {element: "*", port: "*"},
+#      max_latency: 0.5,
+#      nom_rate: 100,
+#      on_fault: "",
+#      conversion: "",
+#      bus: ""
+#    }
+#
+#    # op state
+#    {
+#      id: 9211,
+#      to: {element: "serial_main_ctrl", port: "op_state_goal"},
+#      from: {element: "*", port: "*"},
+#      max_latency: 0.5,
+#      nom_rate: 1,
+#      on_fault: "",
+#      conversion: "",
+#      bus: ""
+#    }
+#    {
+#      id: 9212,
+#      from: {element: "serial_main_ctrl", port: "op_state_value"},
+#      to: {element: "*", port: "*"},
+#      max_latency: 0.5,
+#      nom_rate: 1,
+#      on_fault: "",
+#      conversion: "",
+#      bus: ""
+#    }
+#
 
   ]

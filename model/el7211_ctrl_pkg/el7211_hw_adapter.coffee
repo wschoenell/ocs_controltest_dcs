@@ -11,7 +11,7 @@ Adapter            'el7211_hw_adapter',
       protocol: 'pull',
       max_rate: 1000,
       owner: true,
-      blocking_mode: 'async',
+      blocking_mode: 'sync',
       desc: 'Control (write) variables',
     }
 
@@ -21,16 +21,8 @@ Adapter            'el7211_hw_adapter',
       protocol: 'push',
       max_rate: 1000,
       owner: false,
-      blocking_mode: 'async',
+      blocking_mode: 'sync',
       desc: 'State (read) variables'
-    }
-    el7211_info_port: {
-      type: 'el7211_info',
-      protocol: 'push',
-      max_rate: 1000,
-      owner: false,
-      blocking_mode: 'async',
-      desc: 'Drive information'
     }
 
   data_object_map: [
@@ -39,14 +31,13 @@ Adapter            'el7211_hw_adapter',
     {data_object: "status_word", port: "el7211_state_port", field: "status_word"}
     {data_object: "position", port: "el7211_state_port", field: "position"}
     {data_object: "actual_velocity", port: "el7211_state_port", field: "actual_velocity"}
-    {data_object: "velocity_resolution", port: "el7211_info_port", field: "velocity_resolution"}
   ]
 
   properties:
-    uri: {default: "gmt://el7211_hw_adapter/el7211_hw_adapter"}
+    uri: {default: "gmt://127.0.0.1/controltest_dcs"}
     name: {default: "el7211_hw_adapter"}
     host: {default: "127.0.0.1"}
-    port: {default: 8011}
+    port: {default: 10000}
     scan_rate: {default: 100}
 
   instance_configurations: ['el7211_hw1_adapter']

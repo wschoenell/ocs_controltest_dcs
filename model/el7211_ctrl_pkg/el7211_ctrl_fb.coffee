@@ -55,15 +55,7 @@ FieldBus "el7211_ctrl_fb",
       std_name: "Target Velocity",
       module: 0,
       domain: 0
-    },
-    {
-      name: "velocity_resolution",
-      type: "sdo",
-      label: "Velocity Resolution",
-      std_name: "Velocity Resolution",
-      module: 0,
-      domain: 0
-    },
+    }
   ]
 
 

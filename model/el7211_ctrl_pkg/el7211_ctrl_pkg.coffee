@@ -8,17 +8,7 @@ Package   'el7211_ctrl_pkg',
     {
       id: 8101,
       from: {element: "el7211_hw1_adapter", port: "el7211_state_port"},
-      to: {element: "el7211_ctrl_main", port: "el7211_state_port"},
-      max_latency: 0.5,
-      nom_rate: 100,
-      on_fault: "",
-      conversion: "",
-      bus: ""
-    }
-    {
-      id: 8102,
-      from: {element: "el7211_hw1_adapter", port: "el7211_info_port"},
-      to: {element: "el7211_ctrl_main", port: "el7211_info_port"},
+      to: {element: "el7211_main_ctrl", port: "el7211_state_port"},
       max_latency: 0.5,
       nom_rate: 100,
       on_fault: "",
@@ -29,7 +19,7 @@ Package   'el7211_ctrl_pkg',
     # hw adapter inputs
     {
       id: 8104,
-      from: {element: "el7211_ctrl_main", port: "el7211_control_port"},
+      from: {element: "el7211_main_ctrl", port: "el7211_control_port"},
       to: {element: "el7211_hw1_adapter", port: "el7211_control_port"},
       max_latency: 0.5,
       nom_rate: 100,
@@ -45,18 +35,12 @@ Package   'el7211_ctrl_pkg',
       to: {element: "el7211_ctrl_super", port: "heartbeat_in"},
       max_latency: 0.5,
       nom_rate: 100,
-      on_fault: "",
-      conversion: "",
-      bus: ""
     }
     {
       id: 8108,
-      from: {element: "el7211_ctrl_main", port: "heartbeat_out"},
+      from: {element: "el7211_main_ctrl", port: "heartbeat_out"},
       to: {element: "el7211_ctrl_super", port: "heartbeat_in"},
       max_latency: 0.5,
       nom_rate: 100,
-      on_fault: "",
-      conversion: "",
-      bus: ""
     }
   ]
