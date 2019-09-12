@@ -182,12 +182,12 @@ static ec_pdo_entry_info_t el3356_pdo_status[] = {
 };
 
 static ec_pdo_entry_info_t el3356_pdo_value[] = {
-        {0x6000, 0x11,  32}   //float value                //0x1A02
+        {0x6000, 0x12,  32}   //float value                //0x1A02
 };
 
 static ec_pdo_info_t el3356_pdos_in[] = {
         {0x1A00, 12, el3356_pdo_status},
-        {0x1A01, 1, el3356_pdo_value}
+        {0x1A02, 1, el3356_pdo_value}
 };
 
 static ec_sync_info_t el3356_syncs[] = {
@@ -205,7 +205,8 @@ static ec_sync_info_t el3356_syncs[] = {
 void cyclic_task() {
     static unsigned int counter = 0;
     struct timespec wakeupTime, time;
-    unsigned int value;
+    unsigned int steady;
+    signed int value;
     unsigned int control;
     int i_step = 0;
 
@@ -226,10 +227,10 @@ void cyclic_task() {
             counter = FREQUENCY;
             /* read process data */
 
-            value = EC_READ_U32(domain_pd + off_value_pdo);
+            value = EC_READ_S32(domain_pd + off_value_pdo);
             printf("value: %i\n", value);
-            value = EC_READ_BIT(domain_pd + off_steady_state_pdo, 0);
-            printf("steady: %i\n", value);
+            steady = EC_READ_BIT(domain_pd + off_steady_state_pdo, 0);
+            printf("steady: %i\n", steady);
         }
 
         // write application time to master
@@ -309,7 +310,7 @@ int main(int argc, char **argv) {
     off_txpdo_toggle_pdo = ecrt_slave_config_reg_pdo_entry(sc, 0x6000, 0x10, domain, &bit);
     printf("bit: %i\n", bit);
 
-    off_value_pdo = ecrt_slave_config_reg_pdo_entry(sc, 0x6000, 0x11, domain, &bit);
+    off_value_pdo = ecrt_slave_config_reg_pdo_entry(sc, 0x6000, 0x12, domain, &bit);
     printf("bit: %i\n", bit);
 
     printf("Activating master...\n");
